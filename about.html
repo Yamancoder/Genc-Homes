@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Security: CSP blocks most XSS on static sites -->
+  <!-- Security: allow mailto for this page's form -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'self' mailto:">
-  
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | Genc Homes</title>
@@ -16,7 +16,14 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">Genc Homes</a>
-      <nav class="nav">
+
+      <button class="menu-toggle" aria-label="Toggle menu" aria-controls="site-nav" aria-expanded="false">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+
+      <nav class="nav" id="site-nav">
         <a href="index.html">Home Page</a>
         <a href="houses.html">Our Homes</a>
         <a href="about.html" class="active">About</a>
@@ -58,13 +65,11 @@
     <h2>Contact Us</h2>
     <p>Have a question about a listing or want to schedule a tour? Send us a message or call <strong>(513) 278-7545</strong>.</p>
 
-    <!-- Contact form -->
+    <!-- Contact form (mailto) -->
     <form class="form" action="mailto:hello@genchomes.com" method="post" enctype="text/plain">
-      
       <!-- Honeypot to stop spam bots -->
-      <input type="text" name="company_website" tabindex="-1" autocomplete="off"
-             style="position:absolute;left:-9999px;">
-      
+      <input type="text" name="company_website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;">
+
       <div class="grid-2">
         <label>Full Name
           <input type="text" name="name" required>
