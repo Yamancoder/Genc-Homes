@@ -3,7 +3,7 @@
 <head>
   <!-- Security: allow mailto for this page's form -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'self' mailto:">
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; frame-ancestors 'none'; form-action 'self' mailto:">
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,15 +17,16 @@
     <div class="container header-inner">
       <a class="brand" href="index.html">Genc Homes</a>
 
-      <button class="menu-toggle" aria-label="Toggle menu" aria-controls="site-nav" aria-expanded="false">
+      <button class="menu-toggle" type="button" aria-label="Toggle menu"
+              aria-controls="site-nav" aria-expanded="false">
         <span class="menu-bar"></span>
         <span class="menu-bar"></span>
         <span class="menu-bar"></span>
       </button>
 
       <nav class="nav" id="site-nav">
-        <a href="index.html">Home Page</a>
-        <a href="houses.html">Our Homes</a>
+        <a href="index.html">Home</a>
+        <a href="houses.html">Houses</a>
         <a href="about.html" class="active">About</a>
       </nav>
     </div>
@@ -100,12 +101,12 @@
     <div class="container footer-inner">
       <p>© <span id="year"></span> Genc Homes • (513) 278-7545 • <a href="mailto:hello@genchomes.com">hello@genchomes.com</a></p>
       <div class="footer-nav">
-        <a href="houses.html">Homes</a>
+        <a href="houses.html">Houses</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=5" defer></script>
+  <script src="assets/js/main.js?v=7" defer></script>
 </body>
 </html>
