@@ -3,7 +3,7 @@
 <head>
   <!-- Security: basic CSP for a static page -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'self'">
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; frame-ancestors 'none'; form-action 'self'">
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,15 +16,16 @@
     <div class="container header-inner">
       <a class="brand" href="index.html">Genc Homes</a>
 
-      <button class="menu-toggle" aria-label="Toggle menu" aria-controls="site-nav" aria-expanded="false">
+      <button class="menu-toggle" type="button" aria-label="Toggle menu"
+              aria-controls="site-nav" aria-expanded="false">
         <span class="menu-bar"></span>
         <span class="menu-bar"></span>
         <span class="menu-bar"></span>
       </button>
 
       <nav class="nav" id="site-nav">
-        <a href="index.html">Home Page</a>
-        <a href="houses.html" class="active">Our Homes</a>
+        <a href="index.html">Home</a>
+        <a href="houses.html" class="active">Houses</a>
         <a href="about.html">About</a>
       </nav>
     </div>
@@ -36,6 +37,7 @@
   </main>
 
   <section class="container listings-grid two-col">
+
     <!-- 1 -->
     <article class="card">
       <a class="card-media" href="https://www.zillow.com/homedetails/6605-Sheed-Rd-Cincinnati-OH-45247/34303658_zpid/" target="_blank" rel="noopener">
@@ -163,6 +165,7 @@
         </div>
       </div>
     </article>
+
   </section>
 
   <footer class="site-footer">
@@ -176,6 +179,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=5" defer></script>
+  <script src="assets/js/main.js?v=7" defer></script>
 </body>
 </html>
