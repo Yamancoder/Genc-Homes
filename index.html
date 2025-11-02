@@ -1,28 +1,31 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Security: CSP blocks most XSS on static sites -->
+  <!-- Security: basic CSP for static pages -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'self'">
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Genc Homes offers modern, well-maintained rental homes with responsive management and a seamless leasing experience.">
-
   <title>Genc Homes | Quality Rentals Made Simple</title>
-
-  <!-- Your stylesheet -->
+  <meta name="description" content="Genc Homes offers modern, well-maintained rental homes with responsive management and a seamless leasing experience.">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">Genc Homes</a>
-      <nav class="nav">
+
+      <button class="menu-toggle" aria-label="Toggle menu" aria-controls="site-nav" aria-expanded="false">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+
+      <nav class="nav" id="site-nav">
         <a href="index.html" class="active">Home Page</a>
         <a href="houses.html">Our Homes</a>
-        <a href="about.html#contact">About</a>
+        <a href="about.html">About</a>
       </nav>
     </div>
   </header>
@@ -79,7 +82,6 @@
     </div>
   </footer>
 
-  <!-- defer = better performance, secure load -->
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
