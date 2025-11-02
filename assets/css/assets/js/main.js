@@ -1,4 +1,4 @@
-// Robust mobile nav + footer year
+// Robust mobile nav + footer year (works on all pages)
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.querySelector(".menu-toggle");
   const nav = document.getElementById("site-nav");
