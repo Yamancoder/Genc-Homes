@@ -1,12 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Security: CSP blocks most XSS on static sites -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'self'">
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Genc Homes | Quality Rentals Made Simple</title>
   <meta name="description" content="Genc Homes offers modern, well-maintained rental homes with responsive management and a seamless leasing experience.">
+
+  <title>Genc Homes | Quality Rentals Made Simple</title>
+
+  <!-- Your stylesheet -->
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
@@ -14,7 +22,7 @@
       <nav class="nav">
         <a href="index.html" class="active">Home Page</a>
         <a href="houses.html">Our Homes</a>
-        <a href="about.html">About</a>
+        <a href="about.html#contact">About</a>
       </nav>
     </div>
   </header>
@@ -55,7 +63,7 @@
         <a class="btn btn-primary" href="houses.html">See Available Homes</a>
       </div>
       <div class="teaser-image-wrap">
-        <img src="assets/images/House-2.jpg" alt="Modern home exterior" Style="Width:400px; height:auto;"/>
+        <img src="assets/images/House-2.jpg" alt="Modern home exterior" style="width:400px; height:auto;">
       </div>
     </div>
   </section>
@@ -71,6 +79,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <!-- defer = better performance, secure load -->
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
