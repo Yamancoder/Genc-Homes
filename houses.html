@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Security: basic CSP for static pages -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'self'">
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Homes | Genc Homes</title>
@@ -11,7 +15,14 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">Genc Homes</a>
-      <nav class="nav">
+
+      <button class="menu-toggle" aria-label="Toggle menu" aria-controls="site-nav" aria-expanded="false">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+
+      <nav class="nav" id="site-nav">
         <a href="index.html">Home Page</a>
         <a href="houses.html" class="active">Our Homes</a>
         <a href="about.html">About</a>
@@ -29,7 +40,6 @@
     <!-- 1 -->
     <article class="card">
       <a class="card-media" href="https://www.zillow.com/homedetails/6605-Sheed-Rd-Cincinnati-OH-45247/34303658_zpid/" target="_blank" rel="noopener">
-        <!-- TODO: replace placeholder with your own image file, e.g. assets/images/6605-sheed.jpg -->
         <img src="assets/images/6605-sheed.jpg" alt="6605 Sheed Rd, Cincinnati OH exterior">
       </a>
       <div class="card-body">
@@ -168,6 +178,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
