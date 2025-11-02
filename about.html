@@ -1,12 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Security: CSP blocks most XSS on static sites -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'self' mailto:">
+  
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | Genc Homes</title>
   <meta name="description" content="Learn about Genc Homes—our history, founders, and how to contact us for rentals and property management.">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
@@ -61,8 +66,13 @@
     <h2>Contact Us</h2>
     <p>Have a question about a listing or want to schedule a tour? Send us a message or call <strong>(513) 278-7545</strong>.</p>
 
-    <!-- Mailto form to your address -->
+    <!-- Contact form -->
     <form class="form" action="mailto:hello@genchomes.com" method="post" enctype="text/plain">
+      
+      <!-- Honeypot to stop spam bots -->
+      <input type="text" name="company_website" tabindex="-1" autocomplete="off"
+             style="position:absolute;left:-9999px;">
+      
       <div class="grid-2">
         <label>Full Name
           <input type="text" name="name" required>
@@ -71,12 +81,15 @@
           <input type="email" name="email" required>
         </label>
       </div>
+
       <label>Phone
         <input type="tel" name="phone" placeholder="(513) 278-7545">
       </label>
+
       <label>Message
         <textarea name="message" rows="5" required></textarea>
       </label>
+
       <button class="btn btn-primary" type="submit">Send Message</button>
       <p class="muted small">Prefer not to open your email client? I can wire this to Formspree or Basin—just ask.</p>
     </form>
@@ -96,6 +109,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
