@@ -17,16 +17,20 @@ img{max-width:100%;height:auto;display:block}
 .container{max-width:1100px;margin:0 auto;padding:0 20px}
 
 /* Header */
-.site-header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:50}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:1rem}
-.brand{font-weight:800;font-size:1.25rem;text-decoration:none;color:var(--brand-ink)}
-.nav{display:flex;align-items:center;gap:.5rem}
-.nav a{text-decoration:none;color:#374151;padding:8px 10px;border-radius:10px}
-.nav a.active,.nav a:hover{background:var(--card)}
+.site-header{position:sticky; top:0; z-index:100; background:#fff; border-bottom:1px solid var(--border)}
+.header-inner{display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:64px}
+.brand{font-weight:800; font-size:1.25rem; text-decoration:none; color:var(--brand-ink)}
+.nav{display:flex; gap:.5rem; align-items:center}
+.nav a{padding:.5rem .75rem; border-radius:10px; color:#374151; text-decoration:none}
+.nav a:hover, .nav a.active{background:var(--card)}
 
-/* Hamburger button (hidden on desktop) */
-.menu-toggle{display:none;width:42px;height:42px;border:1px solid var(--border);border-radius:10px;background:#fff;box-shadow:var(--shadow);align-items:center;justify-content:center;gap:4px;cursor:pointer}
-.menu-toggle .menu-bar{display:block;width:20px;height:2px;background:var(--text);border-radius:2px}
+/* Hamburger button */
+.menu-toggle{
+  display:none; width:42px; height:42px; border:1px solid var(--border); background:#fff;
+  border-radius:10px; box-shadow:var(--shadow);
+  align-items:center; justify-content:center; gap:4px; cursor:pointer;
+}
+.menu-toggle .menu-bar{display:block; width:20px; height:2px; background:#111827; border-radius:2px}
 
 /* Hero */
 .hero{background:linear-gradient(180deg,#eef2ff, #fff);padding:56px 0 24px}
@@ -83,28 +87,40 @@ img{max-width:100%;height:auto;display:block}
 .footer-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem;padding:12px 0}
 .footer-nav a{margin-left:14px;text-decoration:none;color:#374151}
 
-/* Responsive */
-@media (max-width: 980px){
-  .grid-3{grid-template-columns:1fr 1fr}
-  .teaser-inner{grid-template-columns:1fr}
-  .split{grid-template-columns:1fr}
-}
-
+/* ======= Mobile Nav (Dropdown) ======= */
 @media (max-width: 720px){
-  .grid-3{grid-template-columns:1fr}
-  .grid-2{grid-template-columns:1fr}
-  .two-col{grid-template-columns:1fr}
-  .card-media img{height:200px}
+  .menu-toggle{display:inline-flex; position:relative; z-index:101}
 
-  /* Mobile nav */
-  .menu-toggle{display:inline-flex}
+  /* Ensure header is above page content */
+  .site-header{position:sticky; top:0; z-index:100; background:#fff}
+
+  /* Collapsed nav lives under the header and doesn't block taps when closed */
   .nav{
     position:absolute; left:0; right:0; top:64px;
     background:#fff; border-top:1px solid var(--border);
     display:grid; gap:0; padding:.25rem 1rem;
-    max-height:0; overflow:hidden; transition:max-height .25s ease;
+    max-height:0; overflow:hidden;
+    transition:max-height .25s ease;
+    z-index:100;                 /* below the button, above content */
+    pointer-events:none;         /* IMPORTANT: closed menu cannot intercept taps */
   }
   .nav a{padding:.875rem .5rem; border-radius:8px}
-  .nav.open{max-height:260px}
+  .nav.open{
+    max-height:260px;
+    pointer-events:auto;         /* enable taps only when open */
+  }
   body.nav-open{overflow:hidden}
+
+  /* Usual layout collapses */
+  .grid-3{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}
+  .card-media img{height:200px}
+}
+
+/* Tablets */
+@media (max-width: 980px){
+  .grid-3{grid-template-columns:1fr 1fr}
+  .teaser-inner{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
 }
